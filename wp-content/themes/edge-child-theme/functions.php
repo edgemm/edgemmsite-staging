@@ -10,7 +10,7 @@ function my_jquery_enqueue() {
 if (!is_admin()) add_action("wp_enqueue_scripts", "my_fitvids_enqueue", 11);
 function my_fitvids_enqueue() {
    wp_deregister_script('fitvids');
-   wp_register_script('fitvids', get_stylesheet_directory_uri().'/js/jquery.fitvids_smc.js', false, null);
+   wp_register_script('fitvids', get_stylesheet_directory_uri().'/js/jquery.fitvids.js', false, null);
    wp_enqueue_script('fitvids');
 }
 
@@ -22,6 +22,13 @@ function my_jquery_enqueue() {
    wp_enqueue_script('track-youtube');
 }
 /* end smc Track Youtube Videos */
+
+/* add site-wide scripts and stylesheets */
+function edgemm_scripts() {
+	// generic scripts used across site
+	wp_enqueue_script( 'edgemm-scripts', get_stylesheet_directory_uri() . '/js/edgemm-scripts.js', array(), '1.0.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'edgemm_scripts' );
 
 // Multiple Featured Images
 require_once ('multiple_featured_images_smc.php');

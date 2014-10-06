@@ -23,7 +23,7 @@
     div.innerHTML = '&shy;<style>         \
       .fluid-width-video-wrapper {        \
          width: 100%;                     \
-		 position: relative;              \
+	 position: relative;              \
          padding: 0;                      \
       }                                   \
                                           \
@@ -46,7 +46,7 @@
     
     return this.each(function(){
       var selectors = [
-        "iframe[src^='http://player.vimeo.com']", 
+        "iframe[src^='//player.vimeo.com']", 
         "iframe[src^='//www.youtube.com']", 
         "iframe[src^='http://www.kickstarter.com']", 
         "object", 
@@ -64,7 +64,7 @@
         if (this.tagName.toLowerCase() == 'embed' && $this.parent('object').length || $this.parent('.fluid-width-video-wrapper').length) { return; } 
         var height = this.tagName.toLowerCase() == 'object' ? $this.attr('height') : $this.height(),
             aspectRatio = height / $this.width();
-        $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 75)+"%");
+        $this.wrap('<div class="fluid-width-video-wrapper"></div>').parent('.fluid-width-video-wrapper').css('padding-top', (aspectRatio * 100)+"%");
         $this.removeAttr('height').removeAttr('width');
       });
     });

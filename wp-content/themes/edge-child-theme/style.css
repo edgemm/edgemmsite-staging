@@ -118,9 +118,7 @@ blockquote {
 }
 
 #certifications {
-	
 	width: 100%;
-	
 }
 
 #certifications img {
@@ -174,7 +172,6 @@ blockquote {
 	float: right;
 	text-align: right;
 	width: 30%;
-		
 }
 
 .nextstep span.row1 {
@@ -382,6 +379,78 @@ width: auto;
 display:block;
 }
 
+/* call to action */
+
+#callToAction {
+	padding: 13px 20px 10px;
+	display: table;
+}
+
+.cta-column {
+	display: table-cell;
+}
+.cta-call {
+	padding-top: 7px;
+}
+.cta-action {
+	width: 150px;
+	vertical-align: top;
+	text-align: right;
+}
+
+.cta-headline {
+	margin: 0;
+	/*font: bold 1em/1.2em "Droid Serif", Georgia, Times, "Times New Roman", serif;*/
+	font: bold 1em/1.2em "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	cursor: pointer;
+}
+.cta-headline:before {
+	width: 9px;
+	height: 9px;
+	margin: 5px 8px 0 0;
+	display: block;
+	float: left;
+	content: '';
+	background: url('images/box-toggle.png') no-repeat 0 0;
+}
+
+.cta-content {
+	width: auto !important;
+	max-height: 0;
+	margin-top: 0 !important;
+	margin-left: 17px !important;
+	overflow: hidden;
+	-webkit-transition: margin-top 0.8s cubic-bezier(.9,.1,.9,.1), max-height 0.8s cubic-bezier(0, 1.05, 0, 1);
+	-moz-transition: margin-top 0.8s cubic-bezier(.9,.1,.9,.1), max-height 0.8s cubic-bezier(0, 1.05, 0, 1);
+	transition: margin-top 0.8s cubic-bezier(.9,.1,.9,.1), max-height 0.8s cubic-bezier(0, 1.05, 0, 1);
+}
+.cta-subhead {
+	margin: 2em 0 1em;
+	font: bold 1em/1.2em "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#callToAction .cta-content > p {
+	width: 100%;
+	float: none;
+	font: normal .8em/1.7em "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#callToAction .cta-action .button {
+	margin: 0;
+	position: static;
+}
+
+.collapse.open .cta-headline:before {
+	background-position: 0 -9px;
+}
+.collapse.open .cta-content {
+	max-height: 1000px;
+	margin-top: 12px !important;
+	-webkit-transition: margin-top 0.8s cubic-bezier(0, 1.05, 0, 1), max-height 0.8s cubic-bezier(0, 0, 1, 0);
+	-moz-transition: margin-top 0.8s cubic-bezier(0, 1.05, 0, 1), max-height 0.8s cubic-bezier(0, 0, 1, 0);
+	transition: margin-top 0.8s cubic-bezier(0, 1.05, 0, 1), max-height 0.8s cubic-bezier(0, 0, 1, 0);
+}
+
+
 /* iPads ----------- */
 @media only screen 
 and (min-device-width : 768px) 
@@ -397,8 +466,20 @@ and (max-device-width : 1024px) {
 	text-align: right;
 	width: 45%;
 }
-	
-	
+
+}
+
+@media only screen and (max-width: 768px) {
+
+.cta-column {
+	display: block;
+}
+.cta-action {
+	width: auto;
+	margin-top: 20px;
+	text-align: center
+}
+
 }
 
 @media only screen and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 600px) {
@@ -436,6 +517,10 @@ a#mynextstep.button:hover {
 #header #logo {
 	width: auto;
 	margin-right: 3%;
+}
+
+.cta-headline:before {
+	margin-top: 4px;
 }
 
 #certifications {

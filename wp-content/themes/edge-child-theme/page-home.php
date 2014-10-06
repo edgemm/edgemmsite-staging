@@ -7,9 +7,18 @@ Template Name: Home
 
 <?php $call_to_action_text = of_get_option('ttrust_cta_text'); ?>
 <?php if($call_to_action_text) : ?>	
-<div id="callToAction" class="clearfix">
-	<p>	<?php echo $call_to_action_text; ?></p>
-	<a href="<?php echo of_get_option('ttrust_cta_btn_link'); ?>" class="button"><?php echo of_get_option('ttrust_cta_btn_text'); ?></a>
+<div id="callToAction" class="collapse clearfix">
+	<div class="cta-column cta-call">
+		<h3 class="cta-headline collapse-trigger"><?php echo $call_to_action_text; ?></h3>
+		<div class="cta-content">
+			<p>Edge Multimedia is a full-service and multi-disciplinary Portland Advertising Agency. We embrace both new media and traditional media as tools that can be used to slingshot our clients beyond the competition. We are a creative Ad agency that can plan and implement entire campaigns for our clients in house. We've been in business and growing for more than ten years because our unique balance delivers measurable results.</p>
+			<h4 class="cta-subhead">Digital Marketing Experts</h4>
+			<p>Looking to conquer the digital spectrum? Our digital marketing team has experts in web design to help your site looks its best and the knowledge of SEO and SEM to help your site rank well in search engines and increase your traffic. In addition we can also manage your social media to help increase your fans and followers.</p>
+		</div>
+	</div>
+	<div class="cta-column cta-action">
+		<a href="<?php echo of_get_option('ttrust_cta_btn_link'); ?>" class="button"><?php echo of_get_option('ttrust_cta_btn_text'); ?></a>
+	</div>
 	
 </div>
 <?php endif; ?>

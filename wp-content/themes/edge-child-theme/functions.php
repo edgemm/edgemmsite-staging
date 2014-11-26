@@ -112,16 +112,16 @@ function remove_parent_theme_features() {
     remove_action('wp_footer','ttrust_footer');
 }
 
-add_action('wp_footer','ttrust_footer_smc');
+add_action('wp_footer','edgemm_footer');
 
-function ttrust_footer_smc() {
+function edgemm_footer() {
 	wp_reset_query();
 	if(is_front_page()){
 		if (of_get_option('ttrust_bkg_slideshow_enabled') && !is_mobile()) {
-			include('background_home_smc.php');
+			include('/wp-content/themes/edge-child-theme/js/background_home.php');
 		}
 		if (of_get_option('ttrust_slideshow_enabled')) {
-			include(TEMPLATEPATH . '/js/slideshow.php');
+			include('/wp-content/themes/edge-child-theme/js/slideshow.php');
 		}
 
 		global $wp_query;
@@ -139,7 +139,7 @@ function ttrust_footer_smc() {
 			include(TEMPLATEPATH . '/js/background_single.php');
 		}
 		if ( false !== strpos($post->post_content, '[slideshow') ) {
-			include(TEMPLATEPATH . '/js/slideshow.php');
+			include(get_stylesheet_directory_uri() . '/js/slideshow.php');
 		}
 	}
 }
@@ -152,6 +152,51 @@ $title);
 return $title;
 }
 add_filter('the_title','remove_private_prefix');
+
+
+
+//////////////////////////////////////////////////////////////
+// Post Type - Home Sliders
+/////////////////////////////////////////////////////////////
+add_action( 'init', 'register_home_slider' );
+
+function register_home_slider() {
+
+    $labels = array( 
+        'name' => _x( 'Home Sliders', 'home_slider' ),
+        'singular_name' => _x( 'Home Slider', 'home_slider' ),
+        'add_new' => _x( 'Add New Home Slider', 'home_slider' ),
+        'add_new_item' => _x( 'Add New Home Slider', 'home_slider' ),
+        'edit_item' => _x( 'Edit Home Slider', 'home_slider' ),
+        'new_item' => _x( 'New Home Slider', 'home_slider' ),
+        'view_item' => _x( 'View Home Slider', 'home_slider' ),
+        'search_items' => _x( 'Search Home Sliders', 'home_slider' ),
+        'not_found' => _x( 'No home sliders found', 'home_slider' ),
+        'not_found_in_trash' => _x( 'No home sliders found in Trash', 'home_slider' ),
+        'parent_item_colon' => _x( 'Parent Home Slider:', 'home_slider' ),
+        'menu_name' => _x( 'Home Sliders', 'home_slider' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => false,
+        'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+        'taxonomies' => array( 'Slider Order' ),
+        'public' => true,
+        'show_ui' => true,        
+        'menu_position' => 100,        
+        'show_in_nav_menus' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'has_archive' => false,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'home_slider', $args );
+}
 
 
 ?>

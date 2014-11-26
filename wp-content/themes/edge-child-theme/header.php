@@ -46,7 +46,6 @@
 	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="/wp-content/themes/edge-child-theme/js/retina.js"></script>
 
-    
 </head>
 
 <body <?php body_class(); ?> >
@@ -62,22 +61,15 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 <!-- end Facbook like button script-->
 
-
 <div id="container">	
 <div id="header">
 
-
-
 	<div class="inside clearfix">
 
-
-    
 <!-- Your Custom Solution button -->                                                         
 <a class="button" href="#" id="mynextstep">YOUR CUSTOM SOLUTION</a>     
 <!-- End Your Custom Solution button -->
 
-                                                         
-				
 		<?php $ttrust_logo = of_get_option('logo'); ?>
 		<div id="logo">
 		<?php if($ttrust_logo) : ?>				
@@ -86,10 +78,6 @@
 			<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>				
 		<?php endif; ?>	
 		</div>
-        
-        
-  
-        
 
 		<div id="mainNav" class="clearfix">							
 			<?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>			
@@ -102,5 +90,5 @@
 <div id="main" class="clearfix">
 	
 	<?php if(is_front_page()):?>			
-		<?php if(of_get_option('ttrust_slideshow_enabled')) get_template_part( 'part-slideshow-smc'); ?>	
+		<?php get_template_part( 'part-slideshow' ); ?>	
 	<?php endif; ?>
